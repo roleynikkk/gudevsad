@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ДУА "Гудзевіцкі дзіцячы сад"</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Фоновая музыка -->
+  <audio id="background-music" loop>
+    <source src="background-music.mp3" type="audio/mpeg">
+    <source src="background-music.ogg" type="audio/ogg">
+  </audio>
+
+  <!-- Главный экран -->
+  <div id="main-screen" class="screen">
+    <div class="music-control">
+      <button id="music-toggle-btn-main">🎵</button>
+      <div class="volume-control">
+        <span>🔊</span>
+        <input type="range" id="volume-slider-main" min="0" max="100" value="30">
+      </div>
+    </div>
+    <div class="centered">
+      <h1>ДУА "Гудзевіцкі дзіцячы сад"</h1>
+      <button id="start-btn">ПАЧАТЬ</button>
+    </div>
+  </div>
+
+  <!-- Экран выбора основных документов -->
+  <div id="doc-select-screen" class="screen hidden">
+    <div class="select-toolbar">
+      <button id="home-back-btn">Назад</button>
+    </div>
+    <div class="music-control">
+      <button id="music-toggle-btn-select">🎵</button>
+      <div class="volume-control">
+        <span>🔊</span>
+        <input type="range" id="volume-slider-select" min="0" max="100" value="30">
+      </div>
+    </div>
+    <h2>Абярыце дакумент для чытання:</h2>
+    <div class="doc-buttons">
+      <button class="doc-btn" data-doc="1">Атэстацыя педагогаў</button>
+      <button class="doc-btn" data-doc="2">Віртуальны метадычны кабінет</button>
+      <button class="doc-btn" data-doc="3">Абагульненне падагагічнага вопыту</button>
+      <button class="doc-btn" data-doc="4">Перыядычныя выданні</button>
+      <button class="doc-btn" data-doc="5">Метадычны партал</button>
+      <button class="doc-btn" data-doc="6">У дапамогу педагогу дашкольнай адукацыі</button>
+      <button class="doc-btn" data-doc="7">Нарматыўныя прававыя дакументы</button>
+      <button class="doc-btn special-btn" id="treasury-btn">Метадычная скарбонка</button>
+    </div>
+  </div>
+
+  <!-- НОВЫЙ экран для Метадычной скарбонки -->
+  <div id="treasury-screen" class="screen hidden">
+    <div class="select-toolbar">
+      <button id="treasury-back-btn">Назад</button>
+    </div>
+    <div class="music-control">
+      <button id="music-toggle-btn-treasury">🎵</button>
+      <div class="volume-control">
+        <span>🔊</span>
+        <input type="range" id="volume-slider-treasury" min="0" max="100" value="30">
+      </div>
+    </div>
+    <h2>Метадычная скарбонка:</h2>
+    <div class="doc-buttons">
+      <button class="treasury-doc-btn" data-treasury="1">Планы работы</button>
+      <button class="treasury-doc-btn" data-treasury="2">Методычныя рэкамендацыі</button>
+      <button class="treasury-doc-btn" data-treasury="3">Карэкцыйная педагогіка</button>
+      <button class="treasury-doc-btn" data-treasury="4">Работа з бацькамі</button>
+      <button class="treasury-doc-btn" data-treasury="5">Фізічнае выхаванне</button>
+      <button class="treasury-doc-btn" data-treasury="6">Творчыя заняткі</button>
+    </div>
+  </div>
+
+  <!-- Экран просмотра документов (старый, можно оставить для совместимости) -->
+  <div id="doc-viewer-screen" class="screen hidden">
+    <div class="toolbar">
+      <div class="music-control-compact">
+        <button id="music-toggle-btn-viewer">🎵</button>
+        <input type="range" id="volume-slider-viewer" min="0" max="20" value="6" class="volume-compact">
+      </div>
+      <div class="toolbar-center">
+        <button id="back-btn">Назад</button>
+        <button id="font-size-btn">Изменить размер шрифта</button>
+      </div>
+      <div></div>
+    </div>
+    <div id="doc-content" class="doc-content">
+      <!-- Здесь будет содержание документа -->
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

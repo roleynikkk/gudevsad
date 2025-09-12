@@ -1,0 +1,425 @@
+﻿body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f5f7;
+}
+
+.screen {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateX(0);
+}
+
+.screen.fade-out {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.screen.fade-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+
+#main-screen {
+  background: linear-gradient(120deg, rgba(55, 65, 81, 0.7) 0%, rgba(75, 85, 99, 0.7) 100%),
+              url('backside1.jpg');
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(3px);
+  position: relative;
+}
+
+#main-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+#doc-select-screen {
+  background: linear-gradient(120deg, rgba(55, 65, 81, 0.8) 0%, rgba(75, 85, 99, 0.8) 100%),
+              url('backside2.jpg');
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(3px);
+  position: relative;
+}
+
+#doc-select-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+#doc-viewer-screen {
+  background: linear-gradient(120deg, rgba(55, 65, 81, 0.8) 0%, rgba(75, 85, 99, 0.8) 100%),
+              url('backside2.jpg');
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(3px);
+  position: relative;
+}
+
+#doc-viewer-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 2.5vw; /* Уменьшили с 3vw до 2.5vw */
+  font-weight: 600;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 2vw; /* Уменьшили с 2.5vw до 2vw */
+  font-weight: 500;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  margin-bottom: 1.5em;
+}
+
+button {
+  background: #3b82f6;
+  color: #fff;
+  font-size: 1.4vw; /* Уменьшили с 2vw до 1.4vw */
+  padding: 0.7em 2em; /* Уменьшили с 1em 3em до 0.7em 2em */
+  border: none;
+  border-radius: 0.8em; /* Уменьшили с 1em */
+  cursor: pointer;
+  margin: 0.6em 0; /* Уменьшили с 1em */
+  transition: background .3s, box-shadow .3s, transform .2s;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  touch-action: manipulation;
+  min-width: 140px; /* Добавили минимальную ширину */
+  max-width: 280px; /* Добавили максимальную ширину */
+  text-align: center;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+button:hover, button:focus {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.doc-buttons {
+  display: flex;
+  gap: 1.2em; /* Уменьшили с 2em до 1.2em */
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 10;
+  position: relative;
+  max-width: 90vw; /* Ограничиваем общую ширину */
+  margin: 0 auto;
+}
+
+.doc-btn {
+  min-width: 180px; /* Уменьшили с 12vw до фиксированного размера */
+  max-width: 250px; /* Максимальная ширина для длинных названий */
+  background: #3b82f6;
+  flex: 1 1 180px; /* Flex-свойства для равномерного распределения */
+  font-size: 1.2vw; /* Чуть меньше основного шрифта */
+}
+
+.select-toolbar {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1em;
+  padding: 0.5em 2em;
+  background: transparent;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+.select-toolbar button {
+  font-size: 1.2vw;
+  padding: 0.6em 1.5em;
+  background: #3b82f6;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  padding: 0.5em 2em;
+  background: transparent;
+  position: relative;
+  top: -10px;
+  width: 100%;
+}
+
+.toolbar-center {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+
+.toolbar button {
+  font-size: 1.2vw;
+  padding: 0.6em 1.5em;
+  background: #3b82f6;
+}
+
+.doc-content {
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  max-width: 1200px;
+  width: 90vw;
+  margin: 0.5em auto;
+  padding: 2.5em;
+  font-size: 1.4em;
+  line-height: 1.7;
+  border-radius: 1em;
+  min-height: 60vh;
+  max-height: 75vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: font-size .2s;
+  backdrop-filter: blur(10px);
+}
+
+/* Управление музыкой */
+.music-control {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 15px;
+  border-radius: 25px;
+  backdrop-filter: blur(5px);
+}
+
+.music-control-inline {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 8px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.music-control-compact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 5px 10px;
+  border-radius: 15px;
+  backdrop-filter: blur(3px);
+}
+
+.music-control button,
+.music-control-inline button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.2em;
+  padding: 0;
+  margin: 0;
+  background: rgba(59, 130, 246, 0.8);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.music-control-compact button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+  background: rgba(59, 130, 246, 0.8);
+  transition: all 0.3s;
+}
+
+.music-control button:hover,
+.music-control-inline button:hover,
+.music-control-compact button:hover {
+  background: rgba(37, 99, 235, 0.9);
+  transform: scale(1.1);
+}
+
+.music-control button.muted,
+.music-control-inline button.muted,
+.music-control-compact button.muted {
+  background: rgba(107, 114, 128, 0.8);
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.volume-control span {
+  color: white;
+  font-size: 1em;
+}
+
+.volume-control input[type="range"] {
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+  cursor: pointer;
+}
+
+.volume-compact {
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+  cursor: pointer;
+}
+
+.volume-control input[type="range"]::-webkit-slider-thumb,
+.volume-compact::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.volume-compact::-webkit-slider-thumb {
+  width: 12px;
+  height: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.volume-control input[type="range"]::-moz-range-thumb,
+.volume-compact::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.volume-compact::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Адаптивность для разных экранов */
+@media screen and (max-width: 1200px) {
+  .doc-btn {
+    min-width: 160px;
+    max-width: 220px;
+    font-size: 14px;
+  }
+  
+  button {
+    font-size: 14px;
+    padding: 0.6em 1.5em;
+  }
+  
+  .doc-buttons {
+    gap: 1em;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .doc-buttons {
+    max-width: 1200px;
+    gap: 1.5em;
+  }
+  
+  .doc-btn {
+    min-width: 200px;
+    max-width: 280px;
+  }
+}
+
+/* Для очень широких экранов */
+@media screen and (min-width: 1800px) {
+  .doc-buttons {
+    max-width: 1400px;
+    gap: 2em;
+  }
+  
+  .doc-btn {
+    min-width: 220px;
+    max-width: 300px;
+    font-size: 1.4vw;
+  }
+}
+
+/* Для компактного размещения 7+ кнопок */
+.doc-buttons.many-buttons {
+  gap: 0.8em;
+}
+
+.doc-buttons.many-buttons .doc-btn {
+  min-width: 160px;
+  max-width: 200px;
+  font-size: 1vw;
+  padding: 0.6em 1.2em;
+}
+
+#treasury-screen {
+  background: linear-gradient(120deg, rgba(55, 65, 81, 0.8) 0%, rgba(75, 85, 99, 0.8) 100%),
+              url('backside3.png');
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(3px);
+  position: relative;
+}
+
+
