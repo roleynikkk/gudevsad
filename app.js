@@ -1,27 +1,27 @@
-﻿// Экранные элементы
+// Экранные элементы
 const mainScreen = document.getElementById('main-screen');
 const docSelectScreen = document.getElementById('doc-select-screen');
-const treasuryScreen = document.getElementById('treasury-screen'); // НОВЫЙ
+const treasuryScreen = document.getElementById('treasury-screen');
 const docViewerScreen = document.getElementById('doc-viewer-screen');
 const startBtn = document.getElementById('start-btn');
 const backBtn = document.getElementById('back-btn');
 const homeBackBtn = document.getElementById('home-back-btn');
-const treasuryBackBtn = document.getElementById('treasury-back-btn'); // НОВЫЙ
-const treasuryBtn = document.getElementById('treasury-btn'); // НОВЫЙ
+const treasuryBackBtn = document.getElementById('treasury-back-btn');
+const treasuryBtn = document.getElementById('treasury-btn');
 const fontSizeBtn = document.getElementById('font-size-btn');
 const docButtons = document.querySelectorAll('.doc-btn');
-const treasuryDocButtons = document.querySelectorAll('.treasury-doc-btn'); // НОВЫЙ
+const treasuryDocButtons = document.querySelectorAll('.treasury-doc-btn');
 const docContent = document.getElementById('doc-content');
 
 // Элементы управления музыкой
 const backgroundMusic = document.getElementById('background-music');
 const musicToggleBtnMain = document.getElementById('music-toggle-btn-main');
 const musicToggleBtnSelect = document.getElementById('music-toggle-btn-select');
-const musicToggleBtnTreasury = document.getElementById('music-toggle-btn-treasury'); // НОВЫЙ
+const musicToggleBtnTreasury = document.getElementById('music-toggle-btn-treasury');
 const musicToggleBtnViewer = document.getElementById('music-toggle-btn-viewer');
 const volumeSliderMain = document.getElementById('volume-slider-main');
 const volumeSliderSelect = document.getElementById('volume-slider-select');
-const volumeSliderTreasury = document.getElementById('volume-slider-treasury'); // НОВЫЙ
+const volumeSliderTreasury = document.getElementById('volume-slider-treasury');
 const volumeSliderViewer = document.getElementById('volume-slider-viewer');
 
 let isMusicPlaying = false;
@@ -33,11 +33,11 @@ const documents = [
     path: 'documents/doc1.pdf'
   },
   {
-    title: 'Віртуальны метадычны кабінет', 
+    title: 'Віртуальны метадычны кабінет',
     path: 'documents/doc2.pdf'
   },
   {
-    title: 'Абагульненне падагагічнага вопыту',
+    title: 'Абагульненне педагагічнага вопыту',
     path: 'documents/doc3.pdf'
   },
   {
@@ -52,16 +52,16 @@ const documents = [
     title: 'У дапамогу педагогу дашкольнай адукацыі',
     path: 'documents/doc6.pdf'
   },
-    {
+  {
     title: 'Нарматыўныя прававыя дакументы',
     path: 'documents/doc7.pdf'
   }
 ];
 
-// НОВЫЕ документы для Метадычной скарбонки
+// Документы для Метадычной скарбонки
 const treasuryDocuments = [
   {
-    title: 'Адукацыйная  галіна',
+    title: 'Адукацыйная галіна',
     path: 'documents/treasury/doc1.pdf'
   },
   {
@@ -406,14 +406,14 @@ if (homeBackBtn) {
   });
 }
 
-// НОВЫЙ обработчик для кнопки "Метадычная скарбонка"
+// Обработчик для кнопки "Метадычная скарбонка"
 if (treasuryBtn) {
   treasuryBtn.addEventListener('click', () => {
     showScreen(treasuryScreen);
   });
 }
 
-// НОВЫЙ обработчик для возврата из Метадычной скарбонки
+// Обработчик для возврата из Метадычной скарбонки
 if (treasuryBackBtn) {
   treasuryBackBtn.addEventListener('click', () => {
     showScreen(docSelectScreen);
@@ -432,7 +432,7 @@ docButtons.forEach(btn => {
   }
 });
 
-// НОВЫЕ обработчики для кнопок Метадычной скарбонки
+// Обработчики для кнопок Метадычной скарбонки
 treasuryDocButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     const docIdx = +btn.dataset.treasury - 1;
@@ -463,4 +463,4 @@ showScreen(mainScreen);
 resetInactivityTimer();
 setTimeout(updateButtonTitles, 100);
 
-console.log("app.js загружен - многоуровневая версия");
+console.log("app.js загружен - многоуровневая версия с исправлениями");

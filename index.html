@@ -1,11 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ДУА "Гудзевіцкі дзіцячы сад"</title>
+  <title>ГУА "Гудзевіцкі дзіцячы сад" — Информативная доска</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png" type="image/x-icon">
 </head>
 <body>
   <!-- Фоновая музыка -->
@@ -24,7 +25,7 @@
       </div>
     </div>
     <div class="centered">
-      <h1>ДУА "Гудзевіцкі дзіцячы сад"</h1>
+      <h1>ГУА "Гудзевіцкі дзіцячы сад"</h1>
       <button id="start-btn">ПАЧАТЬ</button>
     </div>
   </div>
@@ -41,11 +42,11 @@
         <input type="range" id="volume-slider-select" min="0" max="100" value="30">
       </div>
     </div>
-    <h2>Абярыце дакумент для чытання:</h2>
+    <h2>Выберыце дакумент для чытання:</h2>
     <div class="doc-buttons">
       <button class="doc-btn" data-doc="1">Атэстацыя педагогаў</button>
       <button class="doc-btn" data-doc="2">Віртуальны метадычны кабінет</button>
-      <button class="doc-btn" data-doc="3">Абагульненне падагагічнага вопыту</button>
+      <button class="doc-btn" data-doc="3">Абагульненне педагагічнага вопыту</button>
       <button class="doc-btn" data-doc="4">Перыядычныя выданні</button>
       <button class="doc-btn" data-doc="5">Метадычны партал</button>
       <button class="doc-btn" data-doc="6">У дапамогу педагогу дашкольнай адукацыі</button>
@@ -54,7 +55,7 @@
     </div>
   </div>
 
-  <!-- НОВЫЙ экран для Метадычной скарбонки -->
+  <!-- Экран для Метадычной скарбонки -->
   <div id="treasury-screen" class="screen hidden">
     <div class="select-toolbar">
       <button id="treasury-back-btn">Назад</button>
@@ -68,16 +69,16 @@
     </div>
     <h2>Метадычная скарбонка:</h2>
     <div class="doc-buttons">
-      <button class="treasury-doc-btn" data-treasury="1">Планы работы</button>
-      <button class="treasury-doc-btn" data-treasury="2">Методычныя рэкамендацыі</button>
-      <button class="treasury-doc-btn" data-treasury="3">Карэкцыйная педагогіка</button>
-      <button class="treasury-doc-btn" data-treasury="4">Работа з бацькамі</button>
-      <button class="treasury-doc-btn" data-treasury="5">Фізічнае выхаванне</button>
-      <button class="treasury-doc-btn" data-treasury="6">Творчыя заняткі</button>
+      <button class="treasury-doc-btn" data-treasury="1">Адукацыйная галіна</button>
+      <button class="treasury-doc-btn" data-treasury="2">Вобразы мілыя роднага краю</button>
+      <button class="treasury-doc-btn" data-treasury="3">Гульні на тэму</button>
+      <button class="treasury-doc-btn" data-treasury="4">Дзень нараджэння</button>
+      <button class="treasury-doc-btn" data-treasury="5">Дзіця і прырода. На лясной палянцы</button>
+      <button class="treasury-doc-btn" data-treasury="6">Дыдактычныя гульні картатэка</button>
     </div>
   </div>
 
-  <!-- Экран просмотра документов (старый, можно оставить для совместимости) -->
+  <!-- Экран просмотра документов (для совместимости) -->
   <div id="doc-viewer-screen" class="screen hidden">
     <div class="toolbar">
       <div class="music-control-compact">
